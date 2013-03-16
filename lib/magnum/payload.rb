@@ -2,6 +2,9 @@ require 'magnum/payload/version'
 
 module Magnum
   module Payload
+    class ParseError   < StandardError ; end
+    class PayloadError < StandardError ; end
+
     autoload :Base,      'magnum/payload/base'
     autoload :Custom,    'magnum/payload/custom'
     autoload :Github,    'magnum/payload/github'
@@ -18,7 +21,12 @@ module Magnum
     #     Magnum::Payload.parse(:gitslice, 'data') # => Magnum::Payload::Gitslice
     #
     def self.parse(source, payload)
-      Magnum::Payload.const_get(source.to_s.capitalize).new(payload)
+      begin
+        klass = Magnum::Payload.const_get(source.to_s.capitalize)
+        klass..new(payload)
+      rescue NameError
+        raise PayloadError, "Invalid payload type: #{source}"
+      end
     end
   end
 end

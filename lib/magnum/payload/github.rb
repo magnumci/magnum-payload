@@ -1,7 +1,11 @@
 module Magnum
   class Payload::Github < Payload::Base
     def parse!
-      commit = Hashr.new(data.commits.last)
+      if forced?
+        commit = data.head_commit
+      else
+        commit = Hashr.new(data.commits.last)
+      end
 
       @commit          = commit.id
       @author          = commit.author.name
@@ -12,6 +16,12 @@ module Magnum
       @branch          = data.ref.split('/').last
       @commit_url      = commit.url
       @compare_url     = data.compare
+    end
+
+    private
+
+    def forced?
+      data.forced == true
     end
   end
 end

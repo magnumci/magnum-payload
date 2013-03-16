@@ -32,5 +32,13 @@ describe Magnum::Payload::Github do
     it 'sets compare url' do
       payload.compare_url.should eq('https://github.com/sosedoff/lxc-ruby/compare/0e46f019e391...9d227f327e72')
     end
+
+    context 'when payload is forced' do
+      let(:data) { fixture 'github/forced.json' }
+
+      it 'does someting' do
+        payload.commit.should eq 'e7508c4c70d2c5afc1e6c2f3a42ecc098f435103'
+      end
+    end
   end
 end

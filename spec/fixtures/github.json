@@ -1,0 +1,113 @@
+{
+    "after": "9d227f327e725164c3266be74cf5c00678edad13",
+    "before": "0e46f019e391e5f7dc09cb2aaf364be346e36793",
+    "commits": [{
+        "added": [],
+        "author": {
+            "email": "dan.sosedoff@gmail.com",
+            "name": "Dan Sosedoff",
+            "username": "sosedoff"
+        },
+        "committer": {
+            "email": "dan.sosedoff@gmail.com",
+            "name": "Dan Sosedoff",
+            "username": "sosedoff"
+        },
+        "distinct": true,
+        "id": "a7b32aed43bf4942090e310899e554d0e31b9757",
+        "message": "Update travis build config",
+        "modified": [".travis.yml"],
+        "removed": [],
+        "timestamp": "2012-11-16T10:27:05-08:00",
+        "url": "https://github.com/sosedoff/lxc-ruby/commit/a7b32aed43bf4942090e310899e554d0e31b9757"
+    }, {
+        "added": [],
+        "author": {
+            "email": "dan.sosedoff@gmail.com",
+            "name": "Dan Sosedoff",
+            "username": "sosedoff"
+        },
+        "committer": {
+            "email": "dan.sosedoff@gmail.com",
+            "name": "Dan Sosedoff",
+            "username": "sosedoff"
+        },
+        "distinct": true,
+        "id": "2f6036026ef382cd7f5a9cc2fd6c2d6598525d55",
+        "message": "Change gem name",
+        "modified": ["lxc.gemspec"],
+        "removed": [],
+        "timestamp": "2012-11-16T10:30:15-08:00",
+        "url": "https://github.com/sosedoff/lxc-ruby/commit/2f6036026ef382cd7f5a9cc2fd6c2d6598525d55"
+    }, {
+        "added": [],
+        "author": {
+            "email": "dan.sosedoff@gmail.com",
+            "name": "Dan Sosedoff",
+            "username": "sosedoff"
+        },
+        "committer": {
+            "email": "dan.sosedoff@gmail.com",
+            "name": "Dan Sosedoff",
+            "username": "sosedoff"
+        },
+        "distinct": true,
+        "id": "9d227f327e725164c3266be74cf5c00678edad13",
+        "message": "Remove jruby from test matrix",
+        "modified": [".travis.yml"],
+        "removed": [],
+        "timestamp": "2012-11-16T10:37:50-08:00",
+        "url": "https://github.com/sosedoff/lxc-ruby/commit/9d227f327e725164c3266be74cf5c00678edad13"
+    }],
+    "compare": "https://github.com/sosedoff/lxc-ruby/compare/0e46f019e391...9d227f327e72",
+    "created": false,
+    "deleted": false,
+    "forced": false,
+    "head_commit": {
+        "added": [],
+        "author": {
+            "email": "dan.sosedoff@gmail.com",
+            "name": "Dan Sosedoff",
+            "username": "sosedoff"
+        },
+        "committer": {
+            "email": "dan.sosedoff@gmail.com",
+            "name": "Dan Sosedoff",
+            "username": "sosedoff"
+        },
+        "distinct": true,
+        "id": "9d227f327e725164c3266be74cf5c00678edad13",
+        "message": "Remove jruby from test matrix",
+        "modified": [".travis.yml"],
+        "removed": [],
+        "timestamp": "2012-11-16T10:37:50-08:00",
+        "url": "https://github.com/sosedoff/lxc-ruby/commit/9d227f327e725164c3266be74cf5c00678edad13"
+    },
+    "pusher": {
+        "name": "none"
+    },
+    "ref": "refs/heads/master",
+    "repository": {
+        "created_at": "2012-05-25T18:17:04-07:00",
+        "description": "Ruby wrapper for LXC cli tools",
+        "fork": false,
+        "forks": 6,
+        "has_downloads": true,
+        "has_issues": true,
+        "has_wiki": true,
+        "id": 4451730,
+        "language": "Ruby",
+        "name": "lxc-ruby",
+        "open_issues": 0,
+        "owner": {
+            "email": "dan.sosedoff@gmail.com",
+            "name": "sosedoff"
+        },
+        "private": false,
+        "pushed_at": "2012-11-16T10:38:31-08:00",
+        "size": 204,
+        "stargazers": 27,
+        "url": "https://github.com/sosedoff/lxc-ruby",
+        "watchers": 27
+    }
+}

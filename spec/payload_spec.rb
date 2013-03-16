@@ -26,5 +26,10 @@ describe Magnum::Payload do
       payload = Magnum::Payload.parse('beanstalk', fixture('beanstalk/git.json'))
       payload.should be_a Magnum::Payload::Beanstalk
     end
+
+    it 'raises error if source is invalid' do
+      expect { Magnum::Payload.parse('foobar', 'bar') }.
+        to raise_error NameError, 'uninitialized constant Magnum::Payload::Foobar'
+    end
   end
 end

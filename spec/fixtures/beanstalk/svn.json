@@ -1,15 +1,15 @@
 {
-    "author": "admin",
-    "author_email": null,
-    "author_full_name": null,
-    "changed_dirs": [
-        ["trunk", "add"],
-        ["tags", "add"],
-        ["branches", "add"]
-    ],
-    "changed_files": [],
-    "changeset_url": "http://sosedoff.beanstalkapp.com/foobar/changesets/1",
-    "message": "Creating initial repository structure",
-    "revision": 1,
-    "time": "2013/02/02 12:32:19 -0600"
+  "author": "admin",
+  "author_email": null,
+  "author_full_name": null,
+  "changed_dirs": [
+    ["trunk", "add"],
+    ["tags", "add"],
+    ["branches", "add"]
+  ],
+  "changed_files": [],
+  "changeset_url": "http://sosedoff.beanstalkapp.com/foobar/changesets/1",
+  "message": "Creating initial repository structure",
+  "revision": 1,
+  "time": "2013/02/02 12:32:19 -0600"
 }

@@ -23,7 +23,7 @@ module Magnum
     def self.parse(source, payload)
       begin
         klass = Magnum::Payload.const_get(source.to_s.capitalize)
-        klass..new(payload)
+        klass.new(payload)
       rescue NameError
         raise PayloadError, "Invalid payload type: #{source}"
       end

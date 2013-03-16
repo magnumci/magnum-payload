@@ -29,7 +29,7 @@ describe Magnum::Payload do
 
     it 'raises error if source is invalid' do
       expect { Magnum::Payload.parse('foobar', 'bar') }.
-        to raise_error NameError, 'uninitialized constant Magnum::Payload::Foobar'
+        to raise_error Magnum::Payload::PayloadError, 'Invalid payload type: foobar'
     end
   end
 end

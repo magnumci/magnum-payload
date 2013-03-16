@@ -5,14 +5,16 @@ module Magnum
   module Payload
     class Base
       attr_reader :raw_data, :data
+      attr_reader :skip
 
       attr_reader :commit, :branch, :author, :committer, :message
       attr_reader :committer_email, :author_email
       attr_reader :commit_url, :compare_url
 
       def initialize(payload)
+        @skip     = false
         @raw_data = payload
-        @data = parse_payload(payload)
+        @data     = parse_payload(payload)
 
         parse!
       end

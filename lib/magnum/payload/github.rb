@@ -1,6 +1,11 @@
 module Magnum
   class Payload::Github < Payload::Base
     def parse!
+      if deleted?
+        @skip = true
+        return
+      end
+
       if forced?
         commit = data.head_commit
       else
@@ -22,6 +27,10 @@ module Magnum
 
     def forced?
       data.forced == true
+    end
+
+    def deleted?
+      data.deleted == true
     end
   end
 end

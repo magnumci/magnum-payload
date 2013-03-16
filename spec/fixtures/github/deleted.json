@@ -1,0 +1,39 @@
+{
+  "forced": true,
+  "deleted": true,
+  "compare": "https://github.com/sosedoff/lxc-ruby/compare/323388f47818...000000000000",
+  "ref": "refs/heads/refactor-shell",
+  "created": false,
+  "head_commit": null,
+  "pusher": {
+    "email": "dan.sosedoff@gmail.com",
+    "name": "sosedoff"
+  },
+  "repository": {
+    "id": 4451730,
+    "created_at": 1337995024,
+    "url": "https://github.com/sosedoff/lxc-ruby",
+    "fork": false,
+    "master_branch": "master",
+    "name": "lxc-ruby",
+    "language": "Ruby",
+    "private": false,
+    "pushed_at": 1362550211,
+    "watchers": 45,
+    "has_wiki": true,
+    "owner": {
+      "email": "dan.sosedoff@gmail.com",
+      "name": "sosedoff"
+    },
+    "forks": 8,
+    "description": "Ruby wrapper for LXC cli tools",
+    "has_downloads": true,
+    "open_issues": 0,
+    "has_issues": true,
+    "stargazers": 45,
+    "size": 208
+  },
+  "commits": [],
+  "before": "323388f478183ddf4ddd8adb649b416dcdbd1319",
+  "after": "0000000000000000000000000000000000000000"
+}

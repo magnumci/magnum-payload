@@ -36,8 +36,16 @@ describe Magnum::Payload::Github do
     context 'when payload is forced' do
       let(:data) { fixture 'github/forced.json' }
 
-      it 'does someting' do
+      it 'parses head commit' do
         payload.commit.should eq 'e7508c4c70d2c5afc1e6c2f3a42ecc098f435103'
+      end
+    end
+
+    context 'when payload is deleted' do
+      let(:data) { fixture 'github/deleted.json' }
+
+      it 'marks payload as skipped' do
+        payload.skip.should be_true
       end
     end
   end

@@ -34,4 +34,14 @@ describe Magnum::Payload::Base do
       expect { Magnum::Payload::Base.new(nil) }.to raise_error "String or Hash required"
     end
   end
+
+  describe '#skip' do
+    before do
+      Magnum::Payload::Base.any_instance.stub(:parse_payload)
+    end
+
+    it 'should be false' do
+      Magnum::Payload::Base.new('data').skip.should eq false
+    end
+  end
 end

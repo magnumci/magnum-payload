@@ -39,6 +39,10 @@ module Magnum
         raise "Not Implemented"
       end
 
+      def skip?
+        skip == true
+      end
+
       private
 
       def parse_payload(payload)

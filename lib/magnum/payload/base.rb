@@ -4,6 +4,8 @@ require 'hashr'
 module Magnum
   module Payload
     class Base
+      include Magnum::Payload::MessageParser
+
       attr_reader :raw_data, :data
       attr_reader :skip
 
@@ -17,6 +19,10 @@ module Magnum
         @data     = parse_payload(payload)
 
         parse!
+
+        unless @skip
+          @skip = skip_in_commit_message?
+        end
       end
 
       def attributes_hash

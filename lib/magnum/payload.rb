@@ -5,13 +5,14 @@ module Magnum
     class ParseError   < StandardError ; end
     class PayloadError < StandardError ; end
 
-    autoload :Base,      'magnum/payload/base'
-    autoload :Custom,    'magnum/payload/custom'
-    autoload :Github,    'magnum/payload/github'
-    autoload :Gitlab,    'magnum/payload/gitlab'
-    autoload :Gitslice,  'magnum/payload/gitslice'
-    autoload :Bitbucket, 'magnum/payload/bitbucket'
-    autoload :Beanstalk, 'magnum/payload/beanstalk'
+    autoload :Base,          'magnum/payload/base'
+    autoload :Custom,        'magnum/payload/custom'
+    autoload :Github,        'magnum/payload/github'
+    autoload :Gitlab,        'magnum/payload/gitlab'
+    autoload :Gitslice,      'magnum/payload/gitslice'
+    autoload :Bitbucket,     'magnum/payload/bitbucket'
+    autoload :Beanstalk,     'magnum/payload/beanstalk'
+    autoload :MessageParser, 'magnum/payload/message_parser'
 
     # Shorthand method to initialize a new payload class
     #

@@ -24,3 +24,18 @@ Available payload classes:
 - Magnum::Payload::Beanstalk
 - Magnum::Payload::Bitbucket
 - Magnum::Payload::Custom
+
+Payload attributes:
+
+- raw_data - Original payload string or hash
+- data - Formatted Hashr instance
+- skip - Skip flag that indicated full payload skip (deleted head, etc)
+- commit - Code revision (SHA1, number)
+- branch - Code branch name (git, hg, svn)
+- author - Commit author name
+- committer - Commit committer name (git)
+- message - Commit message text
+- committer_email - Committer email (git)
+- author_email - Author email (git)
+- commit_url - Direct URL to view commit diff
+- compare_url - Direct ULR to view commits diff

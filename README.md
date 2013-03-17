@@ -10,13 +10,19 @@ Example:
 require 'magnum/payload'
 
 # Shorthand method to parse payload
-Magnum::Payload.parse('github', 'JSON data') # => Magnum::Payload::Github
+payload = Magnum::Payload.parse('github', 'JSON data') # => Magnum::Payload::Github
 
 # Or directly initialize a class
-Magnum::Payload::Github.new('JSON data')
+payload = Magnum::Payload::Github.new('JSON data')
+
+# Detect skip
+payload.skip?
+payload.skip_message?
 ```
 
-Available payload classes:
+## Payload Classes
+
+All payload classes are inherited from `Magnum::Payload::Base`:
 
 - Magnum::Payload::Github
 - Magnum::Payload::Gitslice
@@ -25,17 +31,19 @@ Available payload classes:
 - Magnum::Payload::Bitbucket
 - Magnum::Payload::Custom
 
-Payload attributes:
+## Payload Attributes
 
-- raw_data - Original payload string or hash
-- data - Formatted Hashr instance
-- skip - Skip flag that indicated full payload skip (deleted head, etc)
-- commit - Code revision (SHA1, number)
-- branch - Code branch name (git, hg, svn)
-- author - Commit author name
-- committer - Commit committer name (git)
-- message - Commit message text
-- committer_email - Committer email (git)
-- author_email - Author email (git)
-- commit_url - Direct URL to view commit diff
-- compare_url - Direct ULR to view commits diff
+Attributes are depending on payload class.
+
+- `raw_data` - Original payload string or hash
+- `data` - Formatted hash instance
+- `skip` - Skip flag that indicated full payload skip (deleted head, etc)
+- `commit` - Code revision (SHA1, number)
+- `branch` - Code branch name (git, hg, svn)
+- `author` - Commit author name
+- `committer` - Commit committer name (git)
+- `message` - Commit message text
+- `committer_email` - Committer email (git)
+- `author_email` - Author email (git)
+- `commit_url` - Direct URL to view commit diff
+- `compare_url` - Direct URL to view commits diff

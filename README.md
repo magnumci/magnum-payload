@@ -1,6 +1,14 @@
 # Magnum Payload
 
-Commit payload processor and formatter library for Magnum CI
+Commit payload processor and formatter library for Magnum CI.
+
+Supported platforms:
+
+- Github (git)
+- Gitslice (git)
+- Bitbucket (git, mercurial)
+- Beanstalkapp (git, mercurial, subversion)
+- Third-party (git)
 
 ## Usage
 

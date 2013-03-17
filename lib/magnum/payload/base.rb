@@ -20,9 +20,7 @@ module Magnum
 
         parse!
 
-        unless @skip
-          @skip = skip_in_commit_message?
-        end
+        @skip = skip_message? unless @skip
       end
 
       def attributes_hash

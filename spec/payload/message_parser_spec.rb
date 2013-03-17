@@ -24,5 +24,10 @@ describe Magnum::Payload::MessageParser do
       subject.stub(:message).and_return('Commit message [skip-ci]')
       subject.skip_message?.should eq true
     end
+
+    it 'returns false if no skip points found' do
+      subject.stub(:message).and_return('Commit message')
+      subject.skip_message?.should eq false
+    end
   end
 end

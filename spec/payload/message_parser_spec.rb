@@ -29,5 +29,17 @@ describe Magnum::Payload::MessageParser do
       subject.stub(:message).and_return('Commit message')
       subject.skip_message?.should eq false
     end
+
+    context 'with multi-line message' do
+      it 'returns true' do
+        subject.stub(:message).and_return("Commit message [skip-ci]\nCommit comments")
+        subject.skip_message?.should eq true
+      end
+
+      it 'returns false' do
+        subject.stub(:message).and_return("Commit message\nLets skip [ci-skip]")
+        subject.skip_message?.should eq false
+      end
+    end
   end
 end

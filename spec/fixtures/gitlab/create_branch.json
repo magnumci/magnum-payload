@@ -2,7 +2,7 @@
   "after": "0188ef243dd8083a4d4761766342b523d521247d",
   "before": "0000000000000000000000000000000000000000",
   "commits": [],
-  "ref": "refs/heads/master",
+  "ref": "refs/heads/foobar",
   "repository": {
     "description": null,
     "homepage": "https://gitlab.com/sosedoff/bar",

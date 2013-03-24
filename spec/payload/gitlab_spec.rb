@@ -29,5 +29,25 @@ describe Magnum::Payload::Gitlab do
     it 'does not set compare url' do
       payload.compare_url.should eq nil
     end
+
+    context 'on new branch' do
+      let(:data) { fixture('gitlab/create_branch.json') }
+
+      it 'sets commit SHA' do
+        payload.commit.should eq '0188ef243dd8083a4d4761766342b523d521247d'
+      end
+
+      it 'sets branch to foobar' do
+        payload.branch.should eq 'foobar'
+      end
+    end
+
+    context 'on deleted branch' do
+      let(:data) { fixture('gitlab/delete_branch.json') }
+
+      it 'sets skip to true ' do
+        payload.skip.should eq true
+      end
+    end
   end
 end

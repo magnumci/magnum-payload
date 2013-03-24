@@ -1,6 +1,11 @@
 module Magnum
   class Payload::Gitlab < Payload::Base
     def parse!
+      if deleted?
+        @skip = true
+        return
+      end
+
       @commit          = data.after
       @branch          = data.ref.split('/').last
       @author          = last_commit.author.name
@@ -13,6 +18,13 @@ module Magnum
 
     def last_commit
       @last_commit ||= Hashr.new(data.commits.last)
+    end
+
+    private
+
+    def deleted?
+      data.before != '0000000000000000000000000000000000000000' &&
+      data.after == '0000000000000000000000000000000000000000'
     end
   end
 end

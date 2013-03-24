@@ -1,0 +1,15 @@
+{
+  "after": "0000000000000000000000000000000000000000",
+  "before": "a99dce54125b4b8a4afbddbb1881f32cf93d3d3b",
+  "commits": [],
+  "ref": "refs/heads/new-branch",
+  "repository": {
+    "description": null,
+    "homepage": "https://gitlab.com/sosedoff/bar",
+    "name": "bar",
+    "url": "git@gitlab.com:sosedoff/bar.git"
+  },
+  "total_commits_count": 0,
+  "user_id": 3686,
+  "user_name": "Dan Sosedoff"
+}

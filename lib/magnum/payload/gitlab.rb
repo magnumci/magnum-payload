@@ -6,14 +6,17 @@ module Magnum
         return
       end
 
-      @commit          = data.after
-      @branch          = data.ref.split('/').last
-      @author          = last_commit.author.name
-      @author_email    = last_commit.author.email
-      @committer       = @author
-      @committer_email = @author_email
-      @message         = last_commit.message
-      @commit_url      = last_commit.url
+      @commit = data.after
+      @branch = data.ref.split('/').last
+
+      if data.commits.any?
+        @author          = last_commit.author.name
+        @author_email    = last_commit.author.email
+        @committer       = @author
+        @committer_email = @author_email
+        @message         = last_commit.message
+        @commit_url      = last_commit.url
+      end
     end
 
     def last_commit

@@ -6,6 +6,7 @@ Supported platforms:
 
 - Github (git)
 - Gitslice (git)
+- Gitlab (git)
 - Bitbucket (git, mercurial)
 - Beanstalkapp (git, mercurial, subversion)
 - Third-party (git)

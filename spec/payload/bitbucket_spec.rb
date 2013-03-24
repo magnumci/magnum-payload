@@ -72,23 +72,23 @@ describe Magnum::Payload::Bitbucket do
 
   describe '#site_url' do
     it 'returns website url without a path' do
-      payload.site_url.should eq('https://bitbucket.org')
+      payload.site_url.should eq 'https://bitbucket.org'
     end
   end
 
   describe '#repo_url' do
     it 'return relative repository path' do
-      payload.repo_url.should eq('/sosedoff/test1/')
+      payload.repo_url.should eq '/sosedoff/test1/'
     end
   end
 
   describe '#make_url' do
     it 'returns a full url to the repository' do
-      payload.make_url.should eq('https://bitbucket.org/sosedoff/test1/')
+      payload.make_url.should eq 'https://bitbucket.org/sosedoff/test1/'
     end 
 
     it 'returns a full url to the repository action' do
-      payload.make_url('commits/1234').should eq('https://bitbucket.org/sosedoff/test1/commits/1234')
+      payload.make_url('commits/1234').should eq 'https://bitbucket.org/sosedoff/test1/commits/1234'
     end
   end
 end

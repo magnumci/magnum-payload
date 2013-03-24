@@ -18,7 +18,7 @@ describe Magnum::Payload do
     #end
 
     it 'returns payload instance for bitbucket' do
-      payload = Magnum::Payload.parse('bitbucket', fixture('bitbucket.json'))
+      payload = Magnum::Payload.parse('bitbucket', fixture('bitbucket/git.json'))
       payload.should be_a Magnum::Payload::Bitbucket
     end
 

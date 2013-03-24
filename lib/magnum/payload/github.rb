@@ -1,12 +1,7 @@
 module Magnum
   class Payload::Github < Payload::Base
     def parse!
-      if deleted?
-        @skip = true
-        return
-      end
-
-      if last_commit.nil?
+      if deleted? || last_commit.nil?
         @skip = true
         return
       end
@@ -24,14 +19,20 @@ module Magnum
 
     private
 
+    # Check if push is forced
+    # @return [Boolean]
     def forced?
       data.forced == true
     end
 
+    # Check if head is deleted
+    # @return [Boolean]
     def deleted?
       data.deleted == true
     end
 
+    # Get last commit in the push
+    # @return [Hashr]
     def last_commit
       if forced?
         data.head_commit

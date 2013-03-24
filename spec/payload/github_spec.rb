@@ -5,7 +5,7 @@ describe Magnum::Payload::Github do
     let(:data)    { fixture('github.json') }
     let(:payload) { Magnum::Payload::Github.new(data) }
 
-    it 'sets commit SHA' do
+    it 'sets commit sha' do
       payload.commit.should eq '9d227f327e725164c3266be74cf5c00678edad13'
     end
 
@@ -17,10 +17,12 @@ describe Magnum::Payload::Github do
       payload.message.should eq 'Remove jruby from test matrix'
     end
 
-    it 'sets author and committer' do
+    it 'sets author' do
       payload.committer.should eq 'Dan Sosedoff'
       payload.committer_email.should eq 'dan.sosedoff@gmail.com'
+    end
 
+    it 'sets committer' do
       payload.author.should eq 'Dan Sosedoff'
       payload.author_email.should eq 'dan.sosedoff@gmail.com'
     end
@@ -29,7 +31,7 @@ describe Magnum::Payload::Github do
       payload.commit_url.should eq 'https://github.com/sosedoff/lxc-ruby/commit/9d227f327e725164c3266be74cf5c00678edad13'
     end
 
-    it 'sets compare url' do
+    it 'sets commit compare url' do
       payload.compare_url.should eq 'https://github.com/sosedoff/lxc-ruby/compare/0e46f019e391...9d227f327e72'
     end
 

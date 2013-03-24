@@ -12,10 +12,10 @@ describe Magnum::Payload do
       payload.should be_a Magnum::Payload::Gitslice
     end
 
-    #it 'returns payload instance for gitlab' do
-    #  payload = Magnum::Payload.parse('gitlab', fixture('gitlab.json'))
-    #  payload.should be_a Magnum::Payload::Gitlab
-    #end
+    it 'returns payload instance for gitlab' do
+      payload = Magnum::Payload.parse('gitlab', fixture('gitlab/commits.json'))
+      payload.should be_a Magnum::Payload::Gitlab
+    end
 
     it 'returns payload instance for bitbucket' do
       payload = Magnum::Payload.parse('bitbucket', fixture('bitbucket/git.json'))

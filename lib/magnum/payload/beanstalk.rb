@@ -2,13 +2,7 @@ module Magnum
   class Payload::Beanstalk < Payload::Base
     def parse!
       data.revision ? parse_svn! : parse_git!
-
-      # Detect test payload for git
-      unless data.revision
-        if data.before =~ /^[0]+$/ && data.after =~ /^[1]+$/
-          @skip = true
-        end
-      end
+      detect_fake_payload!
     end
 
     def last_commit
@@ -35,6 +29,15 @@ module Magnum
       @committer_email = @author_email
       @commit_url      = data.changeset_url
       @message         = data.message
+    end
+
+    def detect_fake_payload!
+      if data.before && data.after
+        if data.before =~ /^[0]+$/ && data.after =~ /^[1]+$/
+          @skip = true
+          @test = true
+        end
+      end
     end
   end
 end

@@ -7,14 +7,15 @@ module Magnum
       include Magnum::Payload::MessageParser
 
       attr_reader :raw_data, :data
-      attr_reader :skip
+      attr_reader :skip, :test
 
       attr_reader :commit, :branch, :author, :committer, :message
       attr_reader :committer_email, :author_email
       attr_reader :commit_url, :compare_url
 
       def initialize(payload)
-        @skip     = false
+        @skip     = false # Do not skip by default
+        @test     = false # Do not treat as test payload
         @raw_data = payload
         @data     = parse_payload(payload)
 

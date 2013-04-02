@@ -31,6 +31,14 @@ describe Magnum::Payload::Beanstalk do
       it 'sets compare url' do
         payload.compare_url.should eq nil
       end
+
+      context 'when fake' do
+        let(:data) { fixture('beanstalk/git.json') }
+
+        it 'sets skip to true' do
+          payload.skip.should eq true
+        end
+      end
     end
 
     context 'with svn payload' do

@@ -36,7 +36,7 @@ describe Magnum::Payload::Github do
     end
 
     context 'when push is forced' do
-      let(:data) { fixture('github/forced.json') }
+      let(:data) { fixture 'github/forced.json' }
 
       it 'parses head commit' do
         payload.commit.should eq 'e7508c4c70d2c5afc1e6c2f3a42ecc098f435103'
@@ -44,7 +44,7 @@ describe Magnum::Payload::Github do
     end
 
     context 'for deleted branch' do
-      let(:data) { fixture('github/deleted.json') }
+      let(:data) { fixture 'github/deleted.json' }
 
       it 'marks payload as skipped' do
         payload.skip.should be_true
@@ -60,6 +60,14 @@ describe Magnum::Payload::Github do
 
       it 'sets branch' do
         payload.branch.should eq 'hello'
+      end
+    end
+
+    context 'for new tag' do
+      let(:data) { fixture 'github/new_tag.json' }
+
+      it 'marks payload as skipped' do
+        payload.skip.should be_true
       end
     end
   end

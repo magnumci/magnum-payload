@@ -6,6 +6,11 @@ module Magnum
         return
       end
 
+      if data.ref =~ /tags/
+        @skip = true
+        return
+      end
+
       @commit          = last_commit.id
       @author          = last_commit.author.name
       @author_email    = last_commit.author.email

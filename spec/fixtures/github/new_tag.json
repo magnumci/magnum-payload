@@ -1,0 +1,58 @@
+{
+  "before": "0000000000000000000000000000000000000000",
+  "after": "95a5abc129d8db566805233d18b927ed06773fde",
+  "created": true,
+  "commits": [],
+  "compare": "https://github.com/sosedoff/net-ssh-session/compare/v0.1.5",
+  "deleted": false,
+  "forced": true,
+  "ref": "refs/tags/v0.1.5",
+  "head_commit": {
+    "message": "Version bump: 0.1.5",
+    "author": {
+      "username": "sosedoff",
+      "name": "Dan Sosedoff",
+      "email": "dan.sosedoff@gmail.com"
+    },
+    "added": [],
+    "modified": ["lib/net-ssh-session/version.rb"],
+    "removed": [],
+    "id": "a9bf1e971bc42e35b58583d1d395b789912dc608",
+    "timestamp": "2013-04-13T15:33:00-07:00",
+    "distinct": true,
+    "url": "https://github.com/sosedoff/net-ssh-session/commit/a9bf1e971bc42e35b58583d1d395b789912dc608",
+    "committer": {
+      "username": "sosedoff",
+      "name": "Dan Sosedoff",
+      "email": "dan.sosedoff@gmail.com"
+    }
+  },
+  "pusher": {
+    "name": "sosedoff",
+    "email": "dan.sosedoff@gmail.com"
+  },
+  "repository": {
+    "has_downloads": true,
+    "size": 252,
+    "watchers": 6,
+    "stargazers": 6,
+    "has_wiki": true,
+    "pushed_at": 1365892380,
+    "master_branch": "master",
+    "owner": {
+      "name": "sosedoff",
+      "email": "dan.sosedoff@gmail.com"
+    },
+    "fork": false,
+    "id": 6552072,
+    "open_issues": 0,
+    "has_issues": true,
+    "name": "net-ssh-session",
+    "language": "Ruby",
+    "created_at": 1352151005,
+    "description": "Shell session for Net::SSH connections",
+    "private": false,
+    "url": "https://github.com/sosedoff/net-ssh-session",
+    "forks": 0
+  }
+}

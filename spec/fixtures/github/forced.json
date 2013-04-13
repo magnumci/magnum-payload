@@ -51,7 +51,7 @@
   "after": "acef953424e5b7b067277075d6d054a9290eb626",
   "deleted": false,
   "commits": [],
-  "ref": "refs/tags/v1.0.0",
+  "ref": "refs/heads/master",
   "compare": "https://github.com/nysa/ruby-opencnam/compare/v1.0.0",
   "before": "0000000000000000000000000000000000000000",
   "created": true

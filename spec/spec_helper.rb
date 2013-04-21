@@ -1,6 +1,10 @@
 $:.unshift File.expand_path("../..", __FILE__)
 
 require 'magnum/payload'
+require 'simplecov'
+SimpleCov.start do
+  add_group 'Magnum::Payload', 'lib/magnum/payload'
+end
 
 def fixture_path(filename=nil)
   path = File.expand_path("../fixtures", __FILE__)

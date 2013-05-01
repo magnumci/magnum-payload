@@ -44,15 +44,15 @@ All payload classes are inherited from `Magnum::Payload::Base`:
 
 Attributes are depending on payload class.
 
-- `raw_data` - Original payload string or hash
-- `data` - Formatted hash instance
-- `skip` - Skip flag that indicated full payload skip (deleted head, etc)
-- `commit` - Code revision (SHA1, number)
-- `branch` - Code branch name (git, hg, svn)
-- `author` - Commit author name
-- `committer` - Commit committer name (git)
-- `message` - Commit message text
+- `raw_data`        - Original payload string or hash
+- `data`            - Formatted hash instance
+- `skip`            - Skip flag that indicated full payload skip (deleted head, etc)
+- `commit`          - Code revision (SHA1, number)
+- `branch`          - Code branch name (git, hg, svn)
+- `author`          - Commit author name
+- `committer`       - Commit committer name (git)
+- `message`         - Commit message text
 - `committer_email` - Committer email (git)
-- `author_email` - Author email (git)
-- `commit_url` - Direct URL to view commit diff
-- `compare_url` - Direct URL to view commits diff
+- `author_email`    - Author email (git)
+- `commit_url`      - Direct URL to view commit diff
+- `compare_url`     - Direct URL to view commits diff

@@ -15,11 +15,7 @@ module Magnum
       @commit_url   = make_url("commits/#{revision}")
 
       if data.commits.size > 1
-        first_commit = Hashr.new(data.commits.first)
-        rev_start = first_commit.revision || first_commit.raw_node
-        rev_end = revision
-
-        @compare_url = make_url("compare/#{rev_start}..#{rev_end}")
+        parse_compare_url(revision)
       end
     end
 
@@ -43,6 +39,15 @@ module Magnum
       else
         Hashr.new(:name => str)
       end
+    end
+
+    private
+
+    def parse_compare_url(revision)
+      first_commit = Hashr.new(data.commits.first)
+      rev_start    = first_commit.revision || first_commit.raw_node
+      rev_end      = revision
+      @compare_url = make_url("compare/#{rev_start}..#{rev_end}")
     end
   end
 end

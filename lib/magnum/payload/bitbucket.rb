@@ -3,9 +3,9 @@ module Magnum
     def parse!
       commit = Hashr.new(data.commits.last)
 
-      branch = commit.branch || commit.branches.first || 'none'
+      branch   = commit.branch || commit.branches.first || 'none'
       revision = commit.revision || commit.raw_node
-      author = parse_author(commit.raw_author)
+      author   = parse_author(commit.raw_author)
 
       @commit       = revision
       @author       = author.name

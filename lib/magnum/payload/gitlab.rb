@@ -1,11 +1,16 @@
 module Magnum
   class Payload::Gitlab < Payload::Base
     def parse!
-      if deleted?
-        @skip = true
-        return
-      end
+      assign_payload unless skip_payload?
+    end
 
+    def last_commit
+      @last_commit ||= Hashr.new(data.commits.last)
+    end
+
+    private
+
+    def assign_payload
       @commit = data.after
       @branch = data.ref.split('/').last
 
@@ -19,11 +24,10 @@ module Magnum
       end
     end
 
-    def last_commit
-      @last_commit ||= Hashr.new(data.commits.last)
+    def skip_payload?
+      @skip = true if deleted?
+      @skip
     end
-
-    private
 
     def deleted?
       data.before != '0000000000000000000000000000000000000000' &&

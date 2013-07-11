@@ -33,6 +33,11 @@ describe Magnum::Payload::Base do
     it 'raises error on invalid input type' do
       expect { Magnum::Payload::Base.new(nil) }.to raise_error "String or Hash required"
     end
+
+    it 'raises error on invalid json' do
+      expect { Magnum::Payload::Base.new("invalid json") }.
+        to raise_error Magnum::Payload::ParseError, "Valid JSON required"
+    end
   end
 
   describe '#skip' do

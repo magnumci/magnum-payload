@@ -14,20 +14,11 @@ module Magnum
     autoload :Beanstalk,     'magnum/payload/beanstalk'
     autoload :MessageParser, 'magnum/payload/message_parser'
 
-    # Shorthand method to initialize a new payload class
-    #
-    # Examples:
-    #
-    #     Magnum::Payload.parse(:github, 'data')   # => Magnum::Payload::Github
-    #     Magnum::Payload.parse(:gitslice, 'data') # => Magnum::Payload::Gitslice
-    #
     def self.parse(source, payload)
-      begin
-        klass = Magnum::Payload.const_get(source.to_s.capitalize)
-        klass.new(payload)
-      rescue NameError
-        raise PayloadError, "Invalid payload type: #{source}"
-      end
+      klass = Magnum::Payload.const_get(source.to_s.capitalize)
+      klass.new(payload)
+    rescue NameError
+      raise PayloadError, "Invalid payload type: #{source}"
     end
   end
 end

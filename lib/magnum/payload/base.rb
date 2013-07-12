@@ -47,17 +47,15 @@ module Magnum
       private
 
       def parse_payload(payload)
-        begin
-          if payload.kind_of?(String)
-            Hashr.new(MultiJson.decode(payload))
-          elsif payload.kind_of?(Hash)
-            Hashr.new(payload)
-          else
-            raise ArgumentError, "String or Hash required"
-          end
-        rescue MultiJson::LoadError
-          raise Magnum::Payload::ParseError, "Valid JSON required"
+        if payload.kind_of?(String)
+          Hashr.new(MultiJson.decode(payload))
+        elsif payload.kind_of?(Hash)
+          Hashr.new(payload)
+        else
+          raise ArgumentError, "String or Hash required"
         end
+      rescue MultiJson::LoadError
+        raise Magnum::Payload::ParseError, "Valid JSON required"
       end
     end
   end

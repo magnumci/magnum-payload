@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version     = Magnum::Payload::VERSION
   s.summary     = "Magnum Payload"
   s.description = "Magnum Payload"
-  s.homepage    = "http://meth.not.even.once"
+  s.homepage    = "https://github.com/magnumci/magnum-payload"
   s.authors     = ["Dan Sosedoff"]
   s.email       = ["dan.sosedoff@gmail.com"]
   

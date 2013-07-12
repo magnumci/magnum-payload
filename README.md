@@ -1,23 +1,20 @@
-# Magnum Payload
+# magnum-payload
 
-Commit payload parser and processor library for Magnum CI.
+Ruby library to parse and process JSON-formatted payloads from code hosting providers. 
+It accepts any commits payloads and transforms them into identical data structures. 
 
-## Overview
-
-This library handles parsing and processing for JSON-formatted payloads from 
-multiple code hosting providers. It is designed to parse an incoming data into
-a single structure that is identical for all providers.
+If you need to integrate web-hooks from Github, Bitbucket or Gitlab this is definitely
+worth checking out. Check examples for details.
 
 ## Supported platforms
 
-Following code hosting platforms are supported:
+You can integrate with the following providers:
 
-- Github (git)
-- Gitslice (git)
-- Gitlab (git)
-- Bitbucket (git, mercurial)
-- Beanstalkapp (git, mercurial, subversion)
-- Third-party (git)
+- [Github](https://github.com) (*git*)
+- [Bitbucket](https://bitbucket.org) (*git, mercurial*)
+- [Gitlab](http://gitlab.org/) (*git*)
+- [Beanstalkapp](http://beanstalkapp.com/) (*git, mercurial, subversion*)
+- Your own server (*git*)
 
 ## Installation
 
@@ -29,11 +26,7 @@ gem 'magnum-payload',
   require: 'magnum/payload'
 ```
 
-Or install with rubygems:
-
-```
-gem install magnum-payload
-```
+NOTE: Library is not distributed via Rubygems.
 
 ## Usage
 
@@ -43,7 +36,9 @@ Example:
 require 'magnum/payload'
 
 # Shorthand method to parse payload
-payload = Magnum::Payload.parse('github', 'JSON data') # => Magnum::Payload::Github
+Magnum::Payload.parse('github', 'JSON data')    # => Magnum::Payload::Github
+Magnum::Payload.parse('bitbucket', 'JSON data') # => Magnum::Payload::Bitbucket
+Magnum::Payload.parse('gitlab', 'JSON data')    # => Magnum::Payload::Bitbucket
 
 # Or directly initialize a class
 payload = Magnum::Payload::Github.new('JSON data')
@@ -53,12 +48,13 @@ payload.skip?
 payload.skip_message?
 ```
 
+See `Payload Attributes` section for payload instance details.
+
 ## Payload Classes
 
 All payload classes are inherited from `Magnum::Payload::Base`:
 
 - Magnum::Payload::Github
-- Magnum::Payload::Gitslice
 - Magnum::Payload::Gitlab
 - Magnum::Payload::Beanstalk
 - Magnum::Payload::Bitbucket

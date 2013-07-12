@@ -37,7 +37,7 @@ module Magnum
       end
 
       def parse!
-        raise "Not Implemented"
+        raise "Not implemented in base class"
       end
 
       def skip?

@@ -10,11 +10,11 @@ worth checking out. Check examples for details.
 
 You can integrate with the following providers:
 
-- [Github](https://github.com) (*git*)
-- [Bitbucket](https://bitbucket.org) (*git, mercurial*)
-- [Gitlab](http://gitlab.org/) (*git*)
-- [Beanstalkapp](http://beanstalkapp.com/) (*git, mercurial, subversion*)
-- Your own server (*git*)
+- [Github](https://github.com) - git
+- [Bitbucket](https://bitbucket.org) - git, mercurial
+- [Gitlab](http://gitlab.org/) - git
+- [Beanstalkapp](http://beanstalkapp.com/) - git, mercurial, subversion
+- Your own server - git
 
 ## Installation
 

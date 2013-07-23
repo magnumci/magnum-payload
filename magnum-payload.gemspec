@@ -3,8 +3,8 @@ require File.expand_path('../lib/magnum/payload/version', __FILE__)
 Gem::Specification.new do |s|
   s.name        = "magnum-payload"
   s.version     = Magnum::Payload::VERSION
-  s.summary     = "Magnum Payload"
-  s.description = "Magnum Payload"
+  s.summary     = "Code payload parser"
+  s.description = "Allows to parse code payloads from Github, Bitbucket and many more"
   s.homepage    = "https://github.com/magnumci/magnum-payload"
   s.authors     = ["Dan Sosedoff"]
   s.email       = ["dan.sosedoff@gmail.com"]

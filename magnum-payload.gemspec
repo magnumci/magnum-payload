@@ -8,6 +8,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/magnumci/magnum-payload"
   s.authors     = ["Dan Sosedoff"]
   s.email       = ["dan.sosedoff@gmail.com"]
+  s.license     = 'MIT'
   
   s.add_development_dependency 'rake',      '~> 10'
   s.add_development_dependency 'rspec',     '~> 2.13'

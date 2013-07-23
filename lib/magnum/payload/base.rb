@@ -1,4 +1,4 @@
-require 'multi_json'
+require 'json'
 require 'hashr'
 
 module Magnum
@@ -48,13 +48,13 @@ module Magnum
 
       def parse_payload(payload)
         if payload.kind_of?(String)
-          Hashr.new(MultiJson.decode(payload))
+          Hashr.new(JSON.parse(payload))
         elsif payload.kind_of?(Hash)
           Hashr.new(payload)
         else
           raise ArgumentError, "String or Hash required"
         end
-      rescue MultiJson::LoadError
+      rescue JSON::ParserError
         raise Magnum::Payload::ParseError, "Valid JSON required"
       end
     end

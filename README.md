@@ -18,15 +18,17 @@ You can integrate with the following providers:
 
 ## Installation
 
-Add dependency to Gemfile:
+Install via rubygems:
 
 ```
-gem 'magnum-payload', 
-  github: 'magnumci/magnum-payload', 
-  require: 'magnum/payload'
+gem install magnum-payload
 ```
 
-NOTE: Library is not distributed via Rubygems.
+Or with bundler:
+
+```
+gem 'magnum-payload', require: 'magnum/payload'
+```
 
 ## Usage
 

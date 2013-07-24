@@ -52,6 +52,8 @@ payload.skip_message?
 
 See `Payload Attributes` section for payload instance details.
 
+Check `examples` directory for code samples.
+
 ## Payload Classes
 
 All payload classes are inherited from `Magnum::Payload::Base`:

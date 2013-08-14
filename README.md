@@ -38,9 +38,9 @@ Example:
 require 'magnum/payload'
 
 # Shorthand method to parse payload
-Magnum::Payload.parse('github', 'JSON data')    # => Magnum::Payload::Github
-Magnum::Payload.parse('bitbucket', 'JSON data') # => Magnum::Payload::Bitbucket
-Magnum::Payload.parse('gitlab', 'JSON data')    # => Magnum::Payload::Bitbucket
+Magnum::Payload.parse('github', 'JSON')    # => Magnum::Payload::Github
+Magnum::Payload.parse('bitbucket', 'JSON') # => Magnum::Payload::Bitbucket
+Magnum::Payload.parse('gitlab', 'JSON')    # => Magnum::Payload::Gitlab
 
 # Or directly initialize a class
 payload = Magnum::Payload::Github.new('JSON data')
@@ -89,11 +89,20 @@ To execute test suite run:
 rake test
 ```
 
+## Contact
+
+Magnum CI
+
+- [https://magnum-ci.com](https://magnum-ci.com)
+- [https://github.com/magnumci](https://github.com/magnumci)
+- [https://twitter.com/ci_magnum](https://twitter.com/ci_magnum)
+- [support@magnum-ci.com](mailto:support@magnum-ci.com)
+
 ## License
 
 MIT License
 
-Copyright (c) 2013 Magnum CI, Dan Sosedoff <dan.sosedoff@gmail.com>
+Copyright (c) 2013 Magnum CI
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in

@@ -1,6 +1,21 @@
 require 'spec_helper'
 
 describe Magnum::Payload do
+  describe ".valid_source?" do
+    it "returns true if valid" do
+      expect(Magnum::Payload.valid_source?("github")).to eq true
+      expect(Magnum::Payload.valid_source?("gitlab")).to eq true
+      expect(Magnum::Payload.valid_source?("gitslice")).to eq true
+      expect(Magnum::Payload.valid_source?("bitbucket")).to eq true
+      expect(Magnum::Payload.valid_source?("beanstalk")).to eq true
+      expect(Magnum::Payload.valid_source?("custom")).to eq true
+    end
+
+    it "returns false if not valid" do
+      expect(Magnum::Payload.valid_source?("foobar")).to eq false
+    end
+  end
+
   describe '.parse' do
     it 'returns payload instance for github' do
       payload = Magnum::Payload.parse('github', fixture('github.json'))

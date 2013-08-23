@@ -1,6 +1,10 @@
 module Magnum
   class Payload::Bitbucket < Payload::Base
     def parse!
+      if data.commits.nil? || data.commits.empty?
+        raise Magnum::Payload::PayloadError, "Payload has no commits"
+      end
+
       commit = Hashr.new(data.commits.last)
 
       branch   = commit.branch || commit.branches.first || 'none'

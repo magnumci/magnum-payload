@@ -1,0 +1,16 @@
+{
+  "repository": {
+    "website": "http://www.mysite.com/",
+    "fork": false,
+    "name": "repository",
+    "scm": "git",
+    "owner": "username",
+    "absolute_url": "/username/repository/",
+    "slug": "minestore",
+    "is_private": true
+  },
+  "truncated": false,
+  "commits": [],
+  "canon_url": "https://bitbucket.org",
+  "user": "username"
+}

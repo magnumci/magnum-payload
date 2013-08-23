@@ -35,6 +35,15 @@ describe Magnum::Payload::Bitbucket do
       it 'sets compare url' do
         payload.compare_url.should eq 'https://bitbucket.org/sosedoff/test1/compare/e15c6013c0f6232153e53b003b97da51d338da3a..f15566c42759198fd32a70963d2509f3f8309586'
       end
+
+      context "that does not have commits" do
+        let(:data) { fixture("bitbucket/git_no_commits.json") }
+
+        it "raises PayloadError exception" do
+          expect { Magnum::Payload::Bitbucket.new(data) }.
+            to raise_error Magnum::Payload::PayloadError, "Payload has no commits"
+        end
+      end
     end
 
     context 'with mercurial payload' do

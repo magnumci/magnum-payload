@@ -14,11 +14,17 @@ module Magnum
     autoload :Beanstalk,     'magnum/payload/beanstalk'
     autoload :MessageParser, 'magnum/payload/message_parser'
 
+    def self.valid_source?(source)
+      %w(custom github gitlab gitslice bitbucket beanstalk).include?(source.to_s)
+    end
+
     def self.parse(source, payload)
+      unless valid_source?(source)
+        raise PayloadError, "Invalid payload type: #{source}"
+      end
+
       klass = Magnum::Payload.const_get(source.to_s.capitalize)
       klass.new(payload)
-    rescue NameError
-      raise PayloadError, "Invalid payload type: #{source}"
     end
   end
 end

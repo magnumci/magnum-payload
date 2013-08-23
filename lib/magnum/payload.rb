@@ -2,6 +2,8 @@ require 'magnum/payload/version'
 
 module Magnum
   module Payload
+    SOURCES = %w(custom github gitlab gitslice bitbucket beanstalk)
+
     class ParseError   < StandardError ; end
     class PayloadError < StandardError ; end
 
@@ -15,7 +17,7 @@ module Magnum
     autoload :MessageParser, 'magnum/payload/message_parser'
 
     def self.valid_source?(source)
-      %w(custom github gitlab gitslice bitbucket beanstalk).include?(source.to_s)
+      SOURCES.include?(source.to_s)
     end
 
     def self.parse(source, payload)

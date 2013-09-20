@@ -14,7 +14,7 @@ module Magnum
 
     def assign_payload
       @commit = data.after
-      @branch = data.ref.split('/').last
+      @branch = data.ref.gsub("refs/heads/", "")
 
       if data.commits.any?
         @author          = last_commit.author.name

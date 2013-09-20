@@ -49,5 +49,13 @@ describe Magnum::Payload::Gitlab do
         payload.skip.should eq true
       end
     end
+
+    context "on head with slash" do
+      let(:data) { fixture("gitlab/branch_with_slash.json") }
+
+      it "returns correct branch name" do
+        expect(payload.branch).to eq "issue/broken-feature"
+      end
+    end
   end
 end

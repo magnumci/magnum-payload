@@ -13,7 +13,7 @@ module Magnum
       @committer       = last_commit.committer.name
       @committer_email = last_commit.committer.email
       @message         = last_commit.message
-      @branch          = data.ref.split('/').last
+      @branch          = data.ref.gsub("refs/heads/", "")
       @commit_url      = last_commit.url
       @compare_url     = data.compare
     end

@@ -19,28 +19,25 @@ module Magnum
     end
 
     def skip_payload?
-      @skip = true if deleted? || last_commit.nil?
+      @skip = true if head_deleted? || last_commit.nil?
       @skip = true if data.ref =~ /tags/
 
       @skip
     end
 
     # Check if push is forced
-    # @return [Boolean]
-    def forced?
+    def forced_push?
       data.forced == true
     end
 
-    # Check if head is deleted
-    # @return [Boolean]
-    def deleted?
+    # Check if push head is deleted
+    def head_deleted?
       data.deleted == true
     end
 
     # Get last commit in the push
-    # @return [Hashr]
     def last_commit
-      if forced?
+      if forced_push?
         data.head_commit
       else
         Hashr.new(data.commits.last)

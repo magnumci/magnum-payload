@@ -22,8 +22,8 @@ module Magnum
                   :compare_url      # URL to view multiple commits diff
 
       def initialize(payload)
-        @skip     = false # Do not skip by default
-        @test     = false # Do not treat as test payload
+        set_defaults
+        
         @raw_data = payload
         @data     = parse_payload(payload)
 
@@ -53,6 +53,11 @@ module Magnum
       end
 
       private
+
+      def set_defaults
+        @skip = false # Do not skip
+        @test = false # Do not treat as test payload
+      end
 
       def parse_payload(payload)
         if payload.kind_of?(String)

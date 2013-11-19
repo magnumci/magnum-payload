@@ -1,12 +1,10 @@
-require 'magnum/payload/version'
+require "magnum/payload/version"
+require "magnum/payload/errors"
 
 module Magnum
   module Payload
     SOURCES = %w(custom github gitlab gitslice bitbucket beanstalk)
-
-    class ParseError   < StandardError ; end
-    class PayloadError < StandardError ; end
-
+    
     autoload :Base,          'magnum/payload/base'
     autoload :Custom,        'magnum/payload/custom'
     autoload :Github,        'magnum/payload/github'

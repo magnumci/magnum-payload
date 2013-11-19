@@ -1,5 +1,5 @@
-require 'json'
-require 'hashr'
+require "json"
+require "hashr"
 
 module Magnum
   module Payload
@@ -7,11 +7,19 @@ module Magnum
       include Magnum::Payload::MessageParser
 
       attr_reader :raw_data, :data
-      attr_reader :skip, :test
 
-      attr_reader :commit, :branch, :author, :committer, :message
-      attr_reader :committer_email, :author_email
-      attr_reader :commit_url, :compare_url
+      attr_reader :skip,            # Flag to indicate payload skip
+                  :test             # Flag to indicate a test payload
+
+      attr_reader :commit,          # Commit SHA or ID
+                  :branch,          # Commit branch name (master)
+                  :author,          # Commit author name
+                  :committer,       # Commit committer name
+                  :message,         # Commit message text
+                  :committer_email, # Committer email address
+                  :author_email,    # Commit author email address
+                  :commit_url,      # Url to view commit diff
+                  :compare_url      # URL to view multiple commits diff
 
       def initialize(payload)
         @skip     = false # Do not skip by default
@@ -26,13 +34,13 @@ module Magnum
 
       def attributes_hash
         {
-          'commit'      => commit,
-          'branch'      => branch,
-          'author'      => author,
-          'committer'   => committer,
-          'message'     => message,
-          'commit_url'  => commit_url,
-          'compare_url' => compare_url
+          "commit"      => commit,
+          "branch"      => branch,
+          "author"      => author,
+          "committer"   => committer,
+          "message"     => message,
+          "commit_url"  => commit_url,
+          "compare_url" => compare_url
         }
       end
 

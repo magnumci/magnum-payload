@@ -1,24 +1,24 @@
-require File.expand_path('../lib/magnum/payload/version', __FILE__)
+require File.expand_path("../lib/magnum/payload/version", __FILE__)
 
-Gem::Specification.new do |s|
-  s.name        = "magnum-payload"
-  s.version     = Magnum::Payload::VERSION
-  s.summary     = "Code payload parser"
-  s.description = "Allows to parse code payloads from Github, Bitbucket and many more"
-  s.homepage    = "https://github.com/magnumci/magnum-payload"
-  s.authors     = ["Dan Sosedoff"]
-  s.email       = ["dan.sosedoff@gmail.com"]
-  s.license     = 'MIT'
+Gem::Specification.new do |spec|
+  spec.name        = "magnum-payload"
+  spec.version     = Magnum::Payload::VERSION
+  spec.summary     = "Code payload parser"
+  spec.description = "Parse code pushes from multiple code hosting platforms"
+  spec.homepage    = "https://github.com/magnumci/magnum-payload"
+  spec.authors     = ["Dan Sosedoff"]
+  spec.email       = ["dan.sosedoff@gmail.com"]
+  spec.license     = "MIT"
   
-  s.add_development_dependency 'rake',      '~> 10'
-  s.add_development_dependency 'rspec',     '~> 2.13'
-  s.add_development_dependency 'simplecov', '~> 0.8'
+  spec.add_development_dependency "rake",      "~> 10"
+  spec.add_development_dependency "rspec",     "~> 2.13"
+  spec.add_development_dependency "simplecov", "~> 0.8"
 
-  s.add_runtime_dependency 'json', '>= 1.8'
-  s.add_runtime_dependency 'hashr', '>= 0'
+  spec.add_runtime_dependency "json", ">= 1.8"
+  spec.add_runtime_dependency "hashr", ">= 0"
   
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{|f| File.basename(f)}
-  s.require_paths = ["lib"]
+  spec.files         = `git ls-files`.split("\n")
+  spec.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  spec.executables   = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
+  spec.require_paths = ["lib"]
 end

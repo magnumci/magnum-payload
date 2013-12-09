@@ -51,4 +51,15 @@ describe Magnum::Payload::Base do
       base.new('data').skip.should eq false
     end
   end
+
+  describe "#skip?" do
+    before do
+      Magnum::Payload::Base.any_instance.stub(:parse_payload)
+      Magnum::Payload::Base.any_instance.stub(:skip) { true }
+    end
+
+    it "returns true if skip" do
+      expect(base.new("data").skip?).to be_true
+    end
+  end
 end

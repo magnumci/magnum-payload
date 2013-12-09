@@ -1,9 +1,5 @@
 require "spec_helper"
 
-class TestMessageParser
-  include Magnum::Payload::MessageParser
-end
-
 describe Magnum::Payload::MessageParser do
   let(:subject) { TestMessageParser.new }
 

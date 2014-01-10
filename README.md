@@ -6,7 +6,7 @@ It accepts any commits payloads and transforms them into identical data structur
 If you need to integrate web-hooks from Github, Bitbucket or Gitlab this is definitely
 worth checking out. Check examples for details.
 
-[![build status](https://magnum-ci.com/status/1f87bb33961c21de5940142e86a741f1.png)](https://magnum-ci.com/public/0cb3a398347ebeeb90fb/builds)
+[![Build Status](https://magnum-ci.com/status/1f87bb33961c21de5940142e86a741f1.png)](https://magnum-ci.com/public/0cb3a398347ebeeb90fb/builds) [![Code Climate](https://codeclimate.com/github/magnumci/magnum-payload.png)](https://codeclimate.com/github/magnumci/magnum-payload)
 
 ## Supported platforms
 

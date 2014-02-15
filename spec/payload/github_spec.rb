@@ -70,5 +70,13 @@ describe Magnum::Payload::Github do
         payload.skip.should be_true
       end
     end
+
+    context 'for ping payload' do
+      let(:data) { fixture 'github/test.json' }
+
+      it 'marks payload as skipped' do
+        expect(payload.skip).to be_true
+      end
+    end
   end
 end

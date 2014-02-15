@@ -19,8 +19,9 @@ module Magnum
     end
 
     def skip_payload?
-      @skip = true if head_deleted? || last_commit.nil?
-      @skip = true if data.ref =~ /tags/
+      return @skip = true if data.zen
+      @skip = true        if head_deleted? || last_commit.nil?
+      @skip = true        if data.ref =~ /tags/
 
       @skip
     end

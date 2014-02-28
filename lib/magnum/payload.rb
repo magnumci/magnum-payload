@@ -3,13 +3,12 @@ require "magnum/payload/errors"
 
 module Magnum
   module Payload
-    SOURCES = %w(custom github gitlab gitslice bitbucket beanstalk)
+    SOURCES = %w(custom github gitlab bitbucket beanstalk)
     
     autoload :Base,          "magnum/payload/base"
     autoload :Custom,        "magnum/payload/custom"
     autoload :Github,        "magnum/payload/github"
     autoload :Gitlab,        "magnum/payload/gitlab"
-    autoload :Gitslice,      "magnum/payload/gitslice"
     autoload :Bitbucket,     "magnum/payload/bitbucket"
     autoload :Beanstalk,     "magnum/payload/beanstalk"
     autoload :MessageParser, "magnum/payload/message_parser"

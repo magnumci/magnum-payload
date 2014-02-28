@@ -5,7 +5,6 @@ describe Magnum::Payload do
     it "returns true if valid" do
       expect(Magnum::Payload.valid_source?("github")).to eq true
       expect(Magnum::Payload.valid_source?("gitlab")).to eq true
-      expect(Magnum::Payload.valid_source?("gitslice")).to eq true
       expect(Magnum::Payload.valid_source?("bitbucket")).to eq true
       expect(Magnum::Payload.valid_source?("beanstalk")).to eq true
       expect(Magnum::Payload.valid_source?("custom")).to eq true
@@ -20,11 +19,6 @@ describe Magnum::Payload do
     it 'returns payload instance for github' do
       payload = Magnum::Payload.parse('github', fixture('github.json'))
       expect(payload).to be_a Magnum::Payload::Github
-    end
-
-    it 'returns payload instance for gitslice' do
-      payload = Magnum::Payload.parse('gitslice', fixture('gitslice.json'))
-      expect(payload).to be_a Magnum::Payload::Gitslice
     end
 
     it 'returns payload instance for gitlab' do

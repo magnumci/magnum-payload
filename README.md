@@ -105,5 +105,3 @@ Magnum CI
 The MIT License (MIT)
 
 Copyright (c) 2013-2014 Dan Sosedoff, <dan.sosedoff@gmail.com>
-
-Copyright (c) 2013-2014 Magnum CI, <support@magnum-ci.com>

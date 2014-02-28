@@ -1,44 +1,42 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Magnum::Payload do
   describe ".valid_source?" do
-    it "returns true if valid" do
-      expect(Magnum::Payload.valid_source?("github")).to eq true
-      expect(Magnum::Payload.valid_source?("gitlab")).to eq true
-      expect(Magnum::Payload.valid_source?("bitbucket")).to eq true
-      expect(Magnum::Payload.valid_source?("beanstalk")).to eq true
-      expect(Magnum::Payload.valid_source?("custom")).to eq true
+    %w(github gitlab bitbucket beanstalk custom).each do |source|
+      it "returns true for #{source}" do
+        expect(described_class.valid_source?(source)).to be_true
+      end
     end
-
+    
     it "returns false if not valid" do
-      expect(Magnum::Payload.valid_source?("foobar")).to eq false
+      expect(described_class.valid_source?("foobar")).to eq false
     end
   end
 
-  describe '.parse' do
-    it 'returns payload instance for github' do
-      payload = Magnum::Payload.parse('github', fixture('github.json'))
+  describe ".parse" do
+    it "returns payload instance for github" do
+      payload = described_class.parse("github", fixture("github.json"))
       expect(payload).to be_a Magnum::Payload::Github
     end
 
-    it 'returns payload instance for gitlab' do
-      payload = Magnum::Payload.parse('gitlab', fixture('gitlab/commits.json'))
+    it "returns payload instance for gitlab" do
+      payload = described_class.parse("gitlab", fixture("gitlab/commits.json"))
       expect(payload).to be_a Magnum::Payload::Gitlab
     end
 
-    it 'returns payload instance for bitbucket' do
-      payload = Magnum::Payload.parse('bitbucket', fixture('bitbucket/git.json'))
+    it "returns payload instance for bitbucket" do
+      payload = described_class.parse("bitbucket", fixture("bitbucket/git.json"))
       expect(payload).to be_a Magnum::Payload::Bitbucket
     end
 
-    it 'returns payload instance for beanstalk' do
-      payload = Magnum::Payload.parse('beanstalk', fixture('beanstalk/git.json'))
+    it "returns payload instance for beanstalk" do
+      payload = described_class.parse("beanstalk", fixture("beanstalk/git.json"))
       expect(payload).to be_a Magnum::Payload::Beanstalk
     end
 
-    it 'raises error if source is invalid' do
-      expect { Magnum::Payload.parse('foobar', 'bar') }.
-        to raise_error Magnum::Payload::PayloadError, 'Invalid payload type: foobar'
+    it "raises error if source is invalid" do
+      expect { described_class.parse("foobar", "bar") }.
+        to raise_error Magnum::Payload::PayloadError, "Invalid payload type: foobar"
     end
   end
 end

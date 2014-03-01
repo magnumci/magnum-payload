@@ -1,112 +1,121 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Magnum::Payload::Beanstalk do
   let(:payload) { Magnum::Payload::Beanstalk.new(data) }
 
-  describe '#parse!' do
-    context 'with git payload' do
-      let(:data) { fixture('beanstalk/git.json') }
+  describe "#parse!" do
+    context "with git payload" do
+      let(:data) { fixture "beanstalk/git.json" }
 
-      it 'sets commit SHA' do
-        payload.commit.should eq '1111111111111111111111111111111111111111'
+      it "sets commit SHA" do
+        expect(payload.commit).to eq "1111111111111111111111111111111111111111"
       end
 
-      it 'sets commit branch' do
-        payload.branch.should eq 'master'
+      it "sets commit branch" do
+        expect(payload.branch).to eq "master"
       end
 
-      it 'sets commit message' do
-        payload.message.should eq 'Fake commit message'
+      it "sets commit message" do
+        expect(payload.message).to eq "Fake commit message"
       end
 
-      it 'sets author and committer' do
-        payload.author.should eq 'Mr Jones'
-        payload.author_email.should eq 'john.jones@gmail.com'
+      it "sets author name" do
+        expect(payload.author).to eq "Mr Jones"
       end
 
-      it 'sets commit view url' do
-        payload.commit_url.should eq 'http://sosedoff.beanstalkapp.com/xml-sitemap/changesets/1111111111111111111111111111111111111111'
+      it "sets auther email" do
+        expect(payload.author_email).to eq "john.jones@gmail.com"
       end
 
-      it 'sets compare url' do
-        payload.compare_url.should eq nil
+      it "sets commit view url" do
+        expect(payload.commit_url).to eq "http://sosedoff.beanstalkapp.com/xml-sitemap/changesets/1111111111111111111111111111111111111111"
       end
 
-      context 'when fake' do
-        let(:data) { fixture('beanstalk/git.json') }
+      it "sets compare url" do
+        expect(payload.compare_url).to be_nil
+      end
 
-        it 'sets skip to true' do
-          payload.skip.should eq true
+      context "when fake" do
+        let(:data) { fixture "beanstalk/git.json" }
+
+        it "sets skip to true" do
+          expect(payload.skip).to be_true
         end
 
-        it 'sets test to true' do
-          payload.test.should eq true
+        it "sets test to true" do
+          expect(payload.test).to be_true
         end
       end
     end
 
-    context 'with svn payload' do
-      let(:data) { fixture('beanstalk/svn.json') }
+    context "with svn payload" do
+      let(:data) { fixture "beanstalk/svn.json" }
 
-      it 'sets commit number' do
-        payload.commit.should eq 1
+      it "sets commit number" do
+        expect(payload.commit).to eq 1
       end
 
-      it 'sets commit message' do
-        payload.message.should eq 'Creating initial repository structure'
+      it "sets commit message" do
+        expect(payload.message).to eq "Creating initial repository structure"
       end
 
-      it 'sets branch to master' do
-        payload.branch.should eq 'master'
+      it "sets branch to master" do
+        expect(payload.branch).to eq "master"
       end
 
-      it 'sets author and committer' do
-        payload.author.should eq 'admin'
-        payload.committer.should eq 'admin'
+      it "sets author" do
+        expect(payload.author).to eq "admin"
       end
 
-      it 'sets commit view url' do
-        payload.commit_url.should_not eq nil
+      it "sets committer" do
+        expect(payload.committer).to eq "admin"
+      end
+
+      it "sets commit view url" do
+        expect(payload.commit_url).not_to be_nil
       end
     end
 
-    context 'with mercurial payload' do
-      let(:data) { fixture('beanstalk/hg.json') }
+    context "with mercurial payload" do
+      let(:data) { fixture "beanstalk/hg.json" }
 
-      it 'sets commit SHA' do
-        payload.commit.should eq '1111111111111111111111111111111111111111'
+      it "sets commit SHA" do
+        expect(payload.commit).to eq "1111111111111111111111111111111111111111"
       end
 
-      it 'sets commit branch' do
-        payload.branch.should eq 'default'
+      it "sets commit branch" do
+        expect(payload.branch).to eq "default"
       end
 
-      it 'sets commit message' do
-        payload.message.should eq 'Fake commit message'
+      it "sets commit message" do
+        expect(payload.message).to eq "Fake commit message"
       end
 
-      it 'sets author and committer' do
-        payload.author.should eq 'Mr Jones'
-        payload.author_email.should eq 'john.jones@gmail.com'
+      it "sets author and committer" do
+        expect(payload.author).to eq "Mr Jones"
       end
 
-      it 'sets commit view url' do
-        payload.commit_url.should eq 'http://sosedoff.beanstalkapp.com/beanstalk-hg1/changesets/1111111111111111111111111111111111111111'
+      it "sets author email" do
+        expect(payload.author_email).to eq "john.jones@gmail.com"
       end
 
-      it 'sets compare url' do
-        payload.compare_url.should eq nil
+      it "sets commit view url" do
+        expect(payload.commit_url).to eq "http://sosedoff.beanstalkapp.com/beanstalk-hg1/changesets/1111111111111111111111111111111111111111"
       end
 
-      context 'when fake' do
-        let(:data) { fixture('beanstalk/hg.json') }
+      it "sets compare url" do
+        expect(payload.compare_url).to be_nil
+      end
 
-        it 'sets skip to true' do
-          payload.skip.should eq true
+      context "when fake" do
+        let(:data) { fixture "beanstalk/hg.json" }
+
+        it "sets skip to true" do
+          expect(payload.skip).to be_true
         end
 
-        it 'sets test to true' do
-          payload.test.should eq true
+        it "sets test to true" do
+          expect(payload.test).to be_true
         end
       end
     end

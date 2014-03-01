@@ -35,7 +35,7 @@ describe Magnum::Payload::Gitlab do
     end
 
     context "on new branch" do
-      let(:data) { fixture("gitlab/create_branch.json") }
+      let(:data) { fixture "gitlab/create_branch.json" }
 
       it "sets commit SHA" do
         expect(payload.commit).to eq "0188ef243dd8083a4d4761766342b523d521247d"
@@ -47,7 +47,7 @@ describe Magnum::Payload::Gitlab do
     end
 
     context "on deleted branch" do
-      let(:data) { fixture("gitlab/delete_branch.json") }
+      let(:data) { fixture "gitlab/delete_branch.json" }
 
       it "sets skip to true " do
         expect(payload.skip).to eq true
@@ -55,7 +55,7 @@ describe Magnum::Payload::Gitlab do
     end
 
     context "on head with slash" do
-      let(:data) { fixture("gitlab/branch_with_slash.json") }
+      let(:data) { fixture "gitlab/branch_with_slash.json" }
 
       it "returns correct branch name" do
         expect(payload.branch).to eq "issue/broken-feature"

@@ -91,17 +91,8 @@ To execute test suite run:
 rake test
 ```
 
-## Contact
-
-Magnum CI
-
-- [https://magnum-ci.com](https://magnum-ci.com)
-- [https://github.com/magnumci](https://github.com/magnumci)
-- [https://twitter.com/ci_magnum](https://twitter.com/ci_magnum)
-- [support@magnum-ci.com](mailto:support@magnum-ci.com)
-
 ## License
 
 The MIT License (MIT)
 
-Copyright (c) 2013-2014 Dan Sosedoff, <dan.sosedoff@gmail.com>
+Copyright (c) 2013-2014 Magnum CI

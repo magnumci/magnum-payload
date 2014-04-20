@@ -17,13 +17,19 @@ describe Magnum::Payload::Github do
       expect(payload.message).to eq "Remove jruby from test matrix"
     end
 
-    it "sets author" do
+    it "sets author name" do
       expect(payload.committer).to eq "Dan Sosedoff"
+    end
+
+    it "sets author email" do
       expect(payload.committer_email).to eq "dan.sosedoff@gmail.com"
     end
 
-    it "sets committer" do
+    it "sets committer name" do
       expect(payload.author).to eq "Dan Sosedoff"
+    end
+
+    it "sets committer email" do
       expect(payload.author_email).to eq "dan.sosedoff@gmail.com"
     end
 

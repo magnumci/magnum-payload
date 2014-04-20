@@ -3,41 +3,44 @@ require "spec_helper"
 describe Magnum::Payload::MessageParser do
   let(:subject) { TestMessageParser.new }
 
+  before do
+    subject.stub(:message) { message }
+  end
+
   describe "#skip_message?" do
-    it "returns true when message contains 'ci-skip'" do
-      subject.stub(:message).and_return("Commit message [ci-skip]")
-      expect(subject.skip_message?).to be_true
-    end
+    context "when no skip points" do
+      let(:message) { "Commit message" }
 
-    it "returns true when message contains 'ci skip'" do
-      subject.stub(:message).and_return("Commit message [ci skip]")
-      expect(subject.skip_message?).to be_true
+      it "returns false" do
+        expect(subject.skip_message?).to be_false
+      end
     end
+    
+    ["[ci-skip]", "[ci skip]", "[skip ci]", "[skip-ci]"].each do |val|
+      context "when message contains #{val}" do
+        let(:message) { val }
 
-    it "returns true when message contains 'skip ci'" do
-      subject.stub(:message).and_return("Commit message [skip ci]")
-      expect(subject.skip_message?).to be_true
-    end
-
-    it "returns true when message contains 'skip-ci'" do
-      subject.stub(:message).and_return("Commit message [skip-ci]")
-      expect(subject.skip_message?).to be_true
-    end
-
-    it "returns false if no skip points found" do
-      subject.stub(:message).and_return("Commit message")
-      expect(subject.skip_message?).to be_false
+        it "returns true" do
+          expect(subject.skip_message?).to be_true
+        end
+      end
     end
 
     context "with multi-line message" do
-      it "returns true" do
-        subject.stub(:message).and_return("Commit message [skip-ci]\nCommit comments")
-        expect(subject.skip_message?).to be_true
+      context "when first line is a skip" do
+        let(:message) { "Commit message [skip-ci]\nCommit comments" }
+
+        it "returns true" do
+          expect(subject.skip_message?).to be_true
+        end
       end
 
-      it "returns false" do
-        subject.stub(:message).and_return("Commit message\nLets skip [ci-skip]")
-        expect(subject.skip_message?).to be_false
+      context "when first lie is not a skip" do
+        let(:message) { "Commit message\nLets skip [ci-skip]" }
+
+        it "returns false" do
+          expect(subject.skip_message?).to be_false
+        end
       end
     end
   end

@@ -1,103 +1,111 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Magnum::Payload::Bitbucket do
-  let(:data) { fixture('bitbucket/git.json') }
-  let(:payload) { Magnum::Payload::Bitbucket.new(data) }
+  let(:data)    { fixture("bitbucket/git.json") }
+  let(:payload) { described_class.new(data) }
 
-  describe '#parse!' do
-    context 'with git payload' do
-      let(:data) { fixture('bitbucket/git.json') }
+  describe "#parse!" do
+    context "with git payload" do
+      let(:data) { fixture("bitbucket/git.json") }
 
-      it 'sets commit SHA' do
-        payload.commit.should eq 'f15566c42759198fd32a70963d2509f3f8309586'
+      it "sets commit SHA" do
+        expect(payload.commit).to eq "f15566c42759198fd32a70963d2509f3f8309586"
       end
 
-      it 'sets commit branch' do
-        payload.branch.should eq 'master'
+      it "sets commit branch" do
+        expect(payload.branch).to eq "master"
       end
 
-      it 'sets commit message' do
-        payload.message.should eq 'Commit Sat Jan 19 18:42:40 CST 2013'
+      it "sets commit message" do
+        expect(payload.message).to eq "Commit Sat Jan 19 18:42:40 CST 2013"
       end
 
-      it 'sets author and committer' do
-        payload.committer.should be_nil
-        payload.committer_email.should be_nil
-
-        payload.author.should eq 'Dan Sosedoff'
-        payload.author_email.should eq 'dan.sosedoff@gmail.com'
+      it "sets committer name" do
+        expect(payload.committer).to eq nil
       end
 
-      it 'sets commit view url' do
-        payload.commit_url.should eq 'https://bitbucket.org/sosedoff/test1/commits/f15566c42759198fd32a70963d2509f3f8309586'
+      it "sets committer email" do
+        expect(payload.committer_email).to eq nil
       end
 
-      it 'sets compare url' do
-        payload.compare_url.should eq 'https://bitbucket.org/sosedoff/test1/compare/e15c6013c0f6232153e53b003b97da51d338da3a..f15566c42759198fd32a70963d2509f3f8309586'
+      it "sets author name" do
+        expect(payload.author).to eq "Dan Sosedoff"
+      end
+
+      it "sets author email" do
+        expect(payload.author_email).to eq "dan.sosedoff@gmail.com"
+      end
+
+      it "sets commit view url" do
+        expect(payload.commit_url).to eq "https://bitbucket.org/sosedoff/test1/commits/f15566c42759198fd32a70963d2509f3f8309586"
+      end
+
+      it "sets compare url" do
+        expect(payload.compare_url).to eq "https://bitbucket.org/sosedoff/test1/compare/e15c6013c0f6232153e53b003b97da51d338da3a..f15566c42759198fd32a70963d2509f3f8309586"
       end
 
       context "that does not have commits" do
         let(:data) { fixture("bitbucket/git_no_commits.json") }
 
         it "raises PayloadError exception" do
-          expect { Magnum::Payload::Bitbucket.new(data) }.
+          expect { described_class.new(data) }.
             to raise_error Magnum::Payload::PayloadError, "Payload has no commits"
         end
       end
     end
 
-    context 'with mercurial payload' do
-      let(:data) { fixture('bitbucket/hg.json') }
+    context "with mercurial payload" do
+      let(:data) { fixture("bitbucket/hg.json") }
 
-      it 'sets commit SHA' do
-        payload.commit.should eq 4
+      it "sets commit SHA" do
+        expect(payload.commit).to eq 4
       end
 
-      it 'sets commit branch' do
-        payload.branch.should eq 'default'
+      it "sets commit branch" do
+        expect(payload.branch).to eq "default"
       end
 
-      it 'sets commit message' do
-        payload.message.should eq 'Commit 2'
+      it "sets commit message" do
+        expect(payload.message).to eq "Commit 2"
       end
 
-      it 'sets author and committer' do
-        payload.committer.should be_nil
-        payload.committer_email.should be_nil
-
-        payload.author.should eq 'Dan Sosedoff'
-        payload.author_email.should eq 'dan.sosedoff@gmail.com'
+      it "sets author name" do
+        payload.author.should eq "Dan Sosedoff"
       end
 
-      it 'sets commit view url' do
-        payload.commit_url.should eq 'https://bitbucket.org/sosedoff/mercurial-test/commits/4'
+      it "sets author email" do
+        expect(payload.author_email).to eq "dan.sosedoff@gmail.com"
       end
 
-      it 'sets compare url' do
-        payload.compare_url.should eq 'https://bitbucket.org/sosedoff/mercurial-test/compare/3..4'
+      it "sets commit view url" do
+        expect(payload.commit_url).to eq "https://bitbucket.org/sosedoff/mercurial-test/commits/4"
+      end
+
+      it "sets compare url" do
+        expect(payload.compare_url).to eq "https://bitbucket.org/sosedoff/mercurial-test/compare/3..4"
       end
     end
   end
 
-  describe '#site_url' do
-    it 'returns website url without a path' do
-      payload.site_url.should eq 'https://bitbucket.org'
+  describe "#site_url" do
+    it "returns website url without a path" do
+      expect(payload.site_url).to eq "https://bitbucket.org"
     end
   end
 
-  describe '#repo_url' do
-    it 'return relative repository path' do
-      payload.repo_url.should eq '/sosedoff/test1/'
+  describe "#repo_url" do
+    it "return relative repository path" do
+      expect(payload.repo_url).to eq "/sosedoff/test1/"
     end
   end
 
-  describe '#make_url' do
-    it 'returns a full url to the repository' do
-      payload.make_url.should eq 'https://bitbucket.org/sosedoff/test1/'
+  describe "#make_url" do
+    it "returns a full url to the repository" do
+      expect(payload.make_url).to eq "https://bitbucket.org/sosedoff/test1/"
     end 
 
-    it 'returns a full url to the repository action' do
-      payload.make_url('commits/1234').should eq 'https://bitbucket.org/sosedoff/test1/commits/1234'
+    it "returns a full url to the repository action" do
+      expect(payload.make_url("commits/1234")).to eq "https://bitbucket.org/sosedoff/test1/commits/1234"
     end
   end
 end

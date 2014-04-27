@@ -73,4 +73,28 @@ describe Magnum::Payload::Base do
         to raise_error "Not implemented in base class"
     end
   end
+
+  describe "#attributes_hash" do
+    let(:hash) { described_class.new("foo" => "bar").attributes_hash }
+
+    before do
+      Magnum::Payload::Base.any_instance.stub(:parse!)
+    end
+
+    it "returns payload hash" do
+      expect(hash).to be_a Hash
+    end
+
+    it "it includes attributes" do
+      expect(hash.keys).to eq [
+        "commit",
+        "branch",
+        "author",
+        "committer",
+        "message",
+        "commit_url",
+        "compare_url"
+      ]
+    end
+  end
 end

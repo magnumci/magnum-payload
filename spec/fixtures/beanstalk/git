@@ -1,0 +1,20 @@
+{
+  "branch": "feature-13914-activation-via-password-reset",
+  "ref": "refs/heads/feature-13914-activation-via-password-reset",
+  "before": "ad027019cdfd4a78e622feb87fb2c56627911d36",
+  "after": "0000000000000000000000000000000000000000",
+  "uri": "git@company.git.beanstalkapp.com:/repo.git",
+  "pusher_id": 12345,
+  "pusher_name": "John Doe",
+  "repository": {
+    "name": "repo",
+    "url": "http://company.beanstalkapp.com/repo",
+    "private": true,
+    "owner": {
+      "name": "John Doe",
+      "email": "owner@email.com"
+    }
+  },
+  "push_is_too_large": false,
+  "commits": []
+}

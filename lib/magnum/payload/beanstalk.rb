@@ -12,6 +12,11 @@ module Magnum
     private
 
     def parse_git!
+      if data.after =~ GIT_ZERO_SHA
+        @skip = true
+        return
+      end
+
       @commit       = last_commit.id
       @branch       = data.branch
       @message      = last_commit.message

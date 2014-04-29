@@ -4,6 +4,8 @@ require "hashr"
 module Magnum
   module Payload
     class Base
+      GIT_ZERO_SHA = /\A[0]{40}\z/
+
       include Magnum::Payload::MessageParser
 
       attr_reader :raw_data, :data

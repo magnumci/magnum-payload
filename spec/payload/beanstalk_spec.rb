@@ -46,6 +46,14 @@ describe Magnum::Payload::Beanstalk do
           expect(payload.test).to be_true
         end
       end
+
+      context "when deleted branch" do
+        let(:data) { fixture "beanstalk/git_branch_delete.json" }
+
+        it "sets skip to true" do
+          expect(payload.skip).to be_true
+        end
+      end
     end
 
     context "with svn payload" do

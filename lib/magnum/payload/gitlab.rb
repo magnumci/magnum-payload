@@ -1,7 +1,5 @@
 module Magnum
   class Payload::Gitlab < Payload::Base
-    ZERO_SHA = /\A[0]{40}\z/
-
     def parse!
       assign_payload unless skip_payload?
     end
@@ -32,7 +30,7 @@ module Magnum
     end
 
     def deleted?
-      data.before !~ ZERO_SHA && data.after =~ ZERO_SHA
+      data.before !~ GIT_ZERO_SHA && data.after =~ GIT_ZERO_SHA
     end
   end
 end

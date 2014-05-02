@@ -17,7 +17,8 @@ You can integrate with the following providers:
 - [Bitbucket](https://bitbucket.org) - git, mercurial
 - [Gitlab](http://gitlab.org/) - git
 - [Beanstalkapp](http://beanstalkapp.com/) - git, mercurial, subversion
-- Your own server - git
+- [CodebaseHQ](http://www.codebasehq.com/) - git
+- Custom Implementation - git
 
 ## Installation
 
@@ -30,7 +31,7 @@ gem install magnum-payload
 Or with bundler:
 
 ```
-gem 'magnum-payload', require: 'magnum/payload'
+gem "magnum-payload", require: "magnum/payload"
 ```
 
 ## Usage
@@ -38,17 +39,17 @@ gem 'magnum-payload', require: 'magnum/payload'
 Example:
 
 ```ruby
-require 'magnum/payload'
+require "magnum/payload"
 
 # Shorthand method to parse payload
-Magnum::Payload.parse('github', 'JSON')    # => Magnum::Payload::Github
-Magnum::Payload.parse('bitbucket', 'JSON') # => Magnum::Payload::Bitbucket
-Magnum::Payload.parse('gitlab', 'JSON')    # => Magnum::Payload::Gitlab
+Magnum::Payload.parse("github", "JSON")    # => Magnum::Payload::Github
+Magnum::Payload.parse("bitbucket", "JSON") # => Magnum::Payload::Bitbucket
+Magnum::Payload.parse("gitlab", "JSON")    # => Magnum::Payload::Gitlab
 
-# Or directly initialize a class
-payload = Magnum::Payload::Github.new('JSON data')
+# Or initialize a payload class directly
+payload = Magnum::Payload::Github.new("JSON data")
 
-# Detect skip
+# Check if payload should be skipped
 payload.skip?
 payload.skip_message?
 ```
@@ -91,6 +92,12 @@ To execute test suite run:
 ```
 rake test
 ```
+
+## Contact
+
+- Magnum CI
+- [https://magnum-ci.com](https://magnum-ci.com)
+- [support@magnum-ci.com](mailto:support@magnum-ci.com)
 
 ## License
 

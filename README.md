@@ -15,7 +15,7 @@ You can integrate with the following providers:
 
 - [Github](https://github.com) - git
 - [Bitbucket](https://bitbucket.org) - git, mercurial
-- [Gitlab](http://gitlab.org/) - git
+- [Gitlab](https://www.gitlab.com/) - git
 - [Beanstalkapp](http://beanstalkapp.com/) - git, mercurial, subversion
 - [CodebaseHQ](http://www.codebasehq.com/) - git
 - Custom Implementation - git

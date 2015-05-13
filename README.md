@@ -103,4 +103,4 @@ rake test
 
 The MIT License (MIT)
 
-Copyright (c) 2013-2014 Magnum CI
+Copyright (c) 2013-2015 Magnum CI

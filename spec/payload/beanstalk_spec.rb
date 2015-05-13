@@ -54,6 +54,20 @@ describe Magnum::Payload::Beanstalk do
           expect(payload.skip).to be_true
         end
       end
+
+      context "when new structure" do
+        let(:data) { fixture "beanstalk/git_new.json" }
+
+        it "parses payload" do
+          expect(payload.commit).to eq "01e1d7d7"
+          expect(payload.branch).to eq "master"
+          expect(payload.message).to eq "Test Message"
+          expect(payload.author).to eq "Foobar"
+          expect(payload.author_email).to eq "email@example.com"
+          expect(payload.commit_url).to eq "https://test.beanstalkapp.com/test-repo/changesets/01e1d7d7"
+          expect(payload.compare_url).to be_nil
+        end
+      end
     end
 
     context "with svn payload" do

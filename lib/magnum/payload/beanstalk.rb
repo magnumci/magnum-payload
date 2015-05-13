@@ -1,6 +1,8 @@
 module Magnum
   class Payload::Beanstalk < Payload::Base
     def parse!
+      @data = data.payload if data && data.payload
+
       data.revision ? parse_svn! : parse_git!
       detect_fake_payload!
     end
@@ -22,7 +24,7 @@ module Magnum
       @message      = last_commit.message
       @author       = last_commit.author.name
       @author_email = last_commit.author.email
-      @commit_url   = last_commit.url
+      @commit_url   = last_commit.url || last_commit.changeset_url
     end
 
     def parse_svn!

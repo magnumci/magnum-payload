@@ -1,0 +1,55 @@
+{
+  "trigger": "push",
+  "payload": {
+    "before": "dee0d9408c68f9ad06e42da20f9028004b87268b",
+    "after": "01e1d7d7d6bf264448a38c6e73284d2f61b9d4fa",
+    "type": "GitPush",
+    "branch": "master",
+    "ref": "refs/heads/master",
+    "repository": {
+      "id": 629639,
+      "name": "test-repo",
+      "title": "test-repo",
+      "type": "GitRepository"
+    },
+    "beanstalk_user": {
+      "type": "Owner",
+      "id": 435943,
+      "login": "example",
+      "email": "email@example.com",
+      "name": "Magnum CI"
+    },
+    "commits": [
+      {
+        "type": "GitCommit",
+        "id": "01e1d7d7",
+        "message": "Test Message",
+        "branch": "master",
+        "author": {
+          "name": "Foobar",
+          "email": "email@example.com"
+        },
+        "beanstalk_user": null,
+        "changed_files": {
+          "added": [
+
+          ],
+          "deleted": [
+
+          ],
+          "modified": [
+            "index.txt"
+          ],
+          "copied": [
+
+          ]
+        },
+        "changeset_url": "https://test.beanstalkapp.com/test-repo/changesets/01e1d7d7",
+        "committed_at": "2015-05-13 17:42:32 UTC",
+        "parents": [
+          "dee0d9408c68f9ad06e42da20f9028004b87268b"
+        ]
+      }
+    ]
+  }
+}

@@ -1,6 +1,10 @@
 module Magnum
   class Payload::Bitbucket < Payload::Base
     def parse!
+      if data.push && data.push.changes
+        return parse_new_payload
+      end
+
       if data.commits.nil? || data.commits.empty?
         raise Magnum::Payload::PayloadError, "Payload has no commits"
       end
@@ -52,6 +56,23 @@ module Magnum
       rev_start    = first_commit.revision || first_commit.raw_node
       rev_end      = revision
       @compare_url = make_url("compare/#{rev_start}..#{rev_end}")
+    end
+
+    def parse_new_payload
+      changes = Hashr.new(data.push.changes[0])
+      commit  = changes[:new]
+      author  = parse_author(commit.target.author.raw)
+
+      @branch       = commit.name
+      @commit       = commit.target[:hash]
+      @message      = commit.target[:message].to_s.strip
+      @author       = author.name
+      @author_email = author.email
+      @commit_url   = commit.target.links.html.href
+
+      if changes.links.html
+        @compare_url = changes.links.html.href
+      end
     end
   end
 end

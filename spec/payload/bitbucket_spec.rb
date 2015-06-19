@@ -30,6 +30,22 @@ describe Magnum::Payload::Bitbucket do
       end
     end
 
+    context "with new git payload" do
+      let(:data) { fixture "bitbucket/git_new.json" }
+
+      it "parses payload" do
+        expect(payload.commit).to eq "9a8349584a87d4760519beb30de938bcf56739f5"
+        expect(payload.branch).to eq "master"
+        expect(payload.message).to eq "Update"
+        expect(payload.committer).to eq nil
+        expect(payload.committer_email).to eq nil
+        expect(payload.author).to eq "Dan Sosedoff"
+        expect(payload.author_email).to eq "dan.sosedoff@gmail.com"
+        expect(payload.commit_url).to eq "https://bitbucket.org/sosedoff/test-bitbucket-repo/commits/9a8349584a87d4760519beb30de938bcf56739f5"
+        expect(payload.compare_url).to eq "https://bitbucket.org/sosedoff/test-bitbucket-repo/branches/compare/9a8349584a87d4760519beb30de938bcf56739f5..4da3ecc3e168597d1485ea5c84cee859ebfde5b4"
+      end
+    end
+
     context "with mercurial payload" do
       let(:data) { fixture("bitbucket/hg.json") }
 
